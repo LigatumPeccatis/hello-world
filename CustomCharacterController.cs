@@ -111,21 +111,22 @@ public class CustomCharacterController : MonoBehaviour {
         float angle = Quaternion.Angle(rotation, transform.rotation);
         Debug.Log("angle: "+angle);
         if(angle > 5){
+	    /*
             testRot+=angle;
             float dotVectors = Vector3.Dot(camMover.camDirection, transform.forward.normalized);
             float rotAngle = Mathf.Acos(dotVectors);
             Vector3 EulerRot = new Vector3(0, rotAngle, 0);
-            //Vector3 vectorRot = new Vector3(0, rotX, 0) * rotatingSpeed;
-            //Vector3 vectorRot = new Vector3();
-            //Debug.Log("EulerRot: " + EulerRot);
+            Vector3 vectorRot = new Vector3(0, rotX, 0) * rotatingSpeed;
+            Vector3 vectorRot = new Vector3();
+            Debug.Log("EulerRot: " + EulerRot);
             Quaternion start = transform.rotation;
             Quaternion disierRot = Quaternion.Euler(new Vector3 (0, testRot, 0) );
-            //Quaternion destination = start * Quaternion.Euler(EulerRot);
+            Quaternion destination = start * Quaternion.Euler(EulerRot); */
             //if(EulerRot != Vector3.zero){
-                Quaternion rot =  Quaternion.Lerp(start, disierRot, Time.deltaTime * .1f); //Quaternion.Euler(EulerRot);
+                Quaternion rot =  Quaternion.Lerp(start, rotation, Time.deltaTime * .1f); //Quaternion.Euler(EulerRot);
                 //Quaternion rot = destination;//Quaternion.Slerp(start, destination);
-                //transform.rotation = rot;
-                mover.Rotate(rot);
+                transform.rotation = rot;
+                //mover.Rotate(rot);
             
         }
         //camMover.moveAround(rotX * rotatingSpeed, rotY * rotatingSpeed);
